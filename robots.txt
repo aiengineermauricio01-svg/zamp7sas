@@ -1,2 +1,3 @@
 User-agent: *
 Allow: /
+Sitemap: https://zamp7sas.vercel.app/sitemap.xml
