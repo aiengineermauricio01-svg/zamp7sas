@@ -1,0 +1,9 @@
+Plantilla de línea base · ZAMP7
+Las tres filas son datos sintéticos de ejemplo: bórrelas y registre su operación.
+Una fila por camión. Horas en formato 24 h (HH:MM). Deje vacío lo que no aplique.
+Métricas que salen de aquí:
+- Minutos en patio = salida_patio - llegada_porteria
+- Espera a muelle = llamado_a_muelle - llegada_porteria
+- Minutos de cargue = fin_cargue - inicio_cargue (menos pausas_min si quiere el tiempo neto)
+- Cumplimiento de cita = llegada_porteria dentro de la ventana de cita
+Dos semanas de registro bastan para ver la mediana diaria y los camiones que esperan más de 45 minutos.

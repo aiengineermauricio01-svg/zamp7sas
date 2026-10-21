@@ -1,0 +1,3 @@
+Archivo (Omnibus-Type) e IBM Plex Mono (IBM) se distribuyen bajo la SIL Open Font License 1.1,
+que permite alojarlos en el propio servidor. Archivos: subconjunto latino en formato WOFF2.
+Fuentes completas: https://fonts.google.com/specimen/Archivo · https://fonts.google.com/specimen/IBM+Plex+Mono

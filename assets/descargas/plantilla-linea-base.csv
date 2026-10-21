@@ -1,0 +1,4 @@
+fecha,placa,transportador,cita,llegada_porteria,llamado_a_muelle,muelle,inicio_cargue,fin_cargue,salida_patio,pausas_min,motivo_pausa,novedad,foto_sello,registrado_por
+2026-11-03,WXP412,Transportes Ejemplo,07:00,06:42,07:00,M2,07:04,07:38,07:46,0,,,si,portero_1
+2026-11-03,TKR908,Transportes Ejemplo,07:00,06:51,07:22,M1,07:26,08:05,08:12,6,faltante,,si,portero_1
+2026-11-03,LBN077,Carga Modelo,,07:04,07:56,M4,08:01,08:44,08:51,0,,sin cita,si,portero_1
