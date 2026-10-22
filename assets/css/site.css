@@ -631,3 +631,28 @@ h1, h2 { text-wrap: balance; }
 
 .seccion--oscura + .historia { padding-top: clamp(8px, 2vw, 24px); }
 .servicio .demo { margin: 14px 0 0; font-weight: 600; } .servicio .demo a { color: var(--morado); text-underline-offset: 3px; }
+
+/* Arquitectura: espina de los siete procesos (arquitectura.html). Solo colores del sitio, claro y oscuro. */
+.espina { margin: 0; background: var(--card); border: 1px solid var(--line); border-radius: var(--radio); padding: clamp(14px, 2.4vw, 28px); }
+.espina__svg { display: none; width: 100%; height: auto; }
+.espina__aviso { margin: 0; }
+.espina figcaption { margin-top: 14px; max-width: 86ch; }
+@media (min-width: 1000px) { .espina__svg { display: block; } .espina__aviso { display: none; } }
+.es-eje { stroke: var(--fg); stroke-width: 4; stroke-linecap: round; fill: none; }
+.es-flecha { fill: var(--fg); }
+.es-hueso { stroke: var(--etiqueta); stroke-width: 2.5; stroke-linecap: round; }
+.es-costilla { stroke: var(--borde); stroke-width: 1.5; }
+.es-nodo { fill: var(--etiqueta); }
+.es-proc { fill: var(--fg); font-family: var(--sans); font-size: 19px; font-weight: 800; }
+.es-num { fill: var(--etiqueta); font-family: var(--mono); font-size: 13px; font-weight: 600; }
+.es-met { fill: var(--etiqueta); font-family: var(--mono); font-size: 12.5px; }
+.es-rib { fill: var(--fg); font-family: var(--sans); font-size: 14px; font-weight: 600; }
+.es-chip { fill: var(--card); stroke: var(--azul); stroke-width: 1.5; }
+.es-chip-t { fill: var(--azul); font-family: var(--mono); font-size: 11.5px; font-weight: 600; letter-spacing: .1em; }
+.es-chip--ia { stroke: var(--morado); }
+.es-chip-t--ia { fill: var(--morado); }
+.es-cabeza { fill: var(--card); stroke: var(--fg); stroke-width: 2; }
+.es-cab-t { fill: var(--fg); font-family: var(--sans); font-size: 21px; font-weight: 800; }
+.es-cab-m { fill: var(--azul); font-family: var(--mono); font-size: 11.5px; font-weight: 600; letter-spacing: .12em; }
+.es-cab-m--c { fill: var(--etiqueta); font-size: 10.5px; }
+.es-cab-p { fill: var(--fg); font-family: var(--sans); font-size: 16px; font-weight: 600; }
