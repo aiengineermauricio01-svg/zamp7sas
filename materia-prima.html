@@ -69,6 +69,38 @@
   </div>
 </section>
 
+<section class="seccion seccion--oscura" id="en-vivo">
+  <div class="wrap">
+    <div class="cabecera rev">
+      <span class="etq">Véalo funcionando</span>
+      <h2>Del aviso del proveedor al silo, un lote a la vez.</h2>
+      <p class="lead">Así puede operar el sistema que construimos: el proveedor avisa su despacho, el camión llega a su cita, la planta lo recibe con placa, peso y calidad, y cada lote queda trazado y, si cuadra, conciliado con la orden de compra, el aviso, el peso y la factura.</p>
+    </div>
+    <div class="gemelo gemelo--cronica" role="group" aria-label="Recorrido de la materia prima del proveedor a la planta: cuatro proveedores avisan su despacho por un portal y la agenda les da una cita; un pronóstico y una ETA predictiva ajustan las llegadas; en la planta la portería lee la placa y fotografía la carga, la báscula pesa, el laboratorio y la visión por computador califican la muestra y el lote pasa a un silo con sensores de temperatura y humedad; un agente de IA concilia orden de compra, aviso, peso y factura y un asistente en español responde citando sus fuentes. La bitácora cuenta la historia de un lote a la vez. Datos sintéticos.">
+      <div class="gemelo__barra"><span class="etq">Recorrido de la materia prima · del proveedor a la planta · en vivo</span><span class="gemelo__estado">RECIBIENDO</span></div>
+      <canvas class="gemelo__vista" data-gemelo="materia" width="1000" height="620" aria-hidden="true"></canvas>
+      <div class="hud">
+        <div class="hud__reloj"><span class="k">Hora simulada</span><span class="v" data-m="reloj">06:00</span></div>
+        <div class="hud__eventos"><span class="k">Bitácora en vivo</span><ul data-m="eventos"></ul></div>
+        <div class="hud__spark"><span class="k">Toneladas recibidas por hora · 6 h</span><canvas data-m="spark" width="150" height="36" aria-hidden="true"></canvas></div>
+      </div>
+      <div class="patio__cifras">
+        <div><span class="v" data-m="vent">—</span><span class="k">Llegadas dentro de su ventana, sin reprogramar</span></div>
+        <div><span class="v" data-m="patio">—</span><span class="k">Minutos promedio de portería a salida</span></div>
+        <div><span class="v" data-m="rech">0 de 0</span><span class="k">Lotes rechazados por calidad</span></div>
+        <div><span class="v" data-m="conc">0</span><span class="k">Lotes conciliados sin digitar</span></div>
+      </div>
+    </div>
+    <div class="grid grid--4" style="margin-top:24px">
+      <div class="tarjeta tarjeta--borde-sup rev" data-d="1"><span class="etq">01 · Antes de salir</span><h3>Portal de proveedores y agenda</h3><p>El proveedor avisa su despacho con el peso esperado y la hora. La agenda le asigna una ventana de llegada de 10 minutos, sin llamadas ni planillas.</p></div>
+      <div class="tarjeta tarjeta--borde-sup rev" data-d="2"><span class="etq">02 · En camino</span><h3>ETA que se corrige sola</h3><p>La hora de llegada se recalcula con la ruta y el tráfico, con la ubicación solo durante el viaje. Si la ventana peligra, la agenda reprograma; el pronóstico anticipa cuántas citas harán falta.</p></div>
+      <div class="tarjeta tarjeta--borde-sup rev" data-d="3"><span class="etq">03 · En la planta</span><h3>Placa, peso y calidad en cada punto</h3><p>La portería lee la placa y fotografía la carga, no al conductor. La báscula se integra, el laboratorio y la visión por computador califican la muestra y los silos informan su temperatura y humedad. Cada lote lleva etiqueta de código de barras o RFID.</p></div>
+      <div class="tarjeta tarjeta--morada rev" data-d="4"><span class="etq etq--morado">04 · IA que concilia</span><h3>Cifras que cuadran, personas que deciden</h3><p>Un agente cruza orden de compra, aviso, peso y factura y pide revisión a una persona cuando algo no cuadra. El asistente en español responde citando sus fuentes.</p></div>
+    </div>
+    <p class="nota" style="margin-top:14px">Datos sintéticos: un segundo equivale a dos minutos. No son datos de un cliente ni prometen un resultado. Privacidad: foto de la mercancía y la placa, no del rostro; sin biometría obligatoria; ubicación solo durante el viaje.</p>
+  </div>
+</section>
+
 <section class="seccion" id="lo-que-cuesta">
   <div class="wrap">
     <div class="cabecera rev">
@@ -269,6 +301,7 @@
   </div>
 </footer>
 <script src="assets/js/site.js" defer></script>
+<script src="assets/js/materia.js" defer></script>
 
 </body>
 </html>

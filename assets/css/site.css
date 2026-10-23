@@ -368,6 +368,17 @@ html.js-rev .rev:not(.en-vista) { opacity: 0; transform: translateY(18px); }
 .hud__eventos .tipo--captura { background: #C0D3ED; } .hud__eventos .tipo--medicion { background: #3EC9AC; } .hud__eventos .tipo--decision { background: #BC76DB; } .hud__eventos .tipo--alerta { background: #FF8A6E; }
 .hud__spark canvas { width: 100%; height: 36px; display: block; }
 .gemelo .patio__cifras { border-top: 1px solid #2B2E3E; }
+/* Bitácora de ancho completo y hasta dos líneas en el celular (solo donde el gemelo lleva .gemelo--cronica) */
+@media (max-width: 640px) {
+  .gemelo--cronica .hud { grid-template-columns: minmax(0, 1fr); }
+  .gemelo--cronica .hud__reloj { display: flex; align-items: baseline; gap: 12px; border-right: 0; border-bottom: 1px solid #2B2E3E; }
+  .gemelo--cronica .hud__reloj .k { margin-bottom: 0; }
+  .gemelo--cronica .hud__eventos { border-right: 0; }
+  .gemelo--cronica .hud__eventos ul { min-height: calc(4 * 2 * 1.35em + 9px); }
+  .gemelo--cronica .hud__eventos li { white-space: normal; align-items: start; }
+  .gemelo--cronica .hud__eventos .txt { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden; }
+  .gemelo--cronica .hud__eventos .det { display: none; }
+}
 .gemelo--demo .gemelo__lienzo { max-height: 70vh; object-fit: contain; }
 
 /* Foco que sigue al cursor en tarjetas (sutil) */
