@@ -350,6 +350,7 @@ html.js-rev .rev:not(.en-vista) { opacity: 0; transform: translateY(18px); }
 .gemelo__estado { display: inline-flex; align-items: center; gap: 6px; font-family: var(--mono); font-size: 11px; letter-spacing: .1em; color: var(--ok-luz); }
 .gemelo__estado::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--ok-luz); box-shadow: 0 0 0 0 rgba(62,201,172,.6); animation: latido 2s infinite; }
 .gemelo__lienzo { width: 100%; aspect-ratio: 1000 / 620; display: block; }
+.gemelo__vista { width: 100%; aspect-ratio: 1000 / 620; display: block; } /* flota.js y flujo.js ajustan la proporción en el celular */
 .hud { display: grid; grid-template-columns: 112px minmax(0, 1fr) 150px; border-top: 1px solid #2B2E3E; }
 @media (max-width: 640px) { .hud { grid-template-columns: 96px minmax(0, 1fr); } .hud__spark { display: none; } }
 .hud > div { padding: 10px 12px; border-right: 1px solid #2B2E3E; min-width: 0; }

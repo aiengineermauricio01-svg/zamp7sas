@@ -69,6 +69,38 @@
   </div>
 </section>
 
+<section class="seccion seccion--oscura" id="en-vivo">
+  <div class="wrap">
+    <div class="cabecera rev">
+      <span class="etq">Véalo funcionando</span>
+      <h2>Su flota en un solo tablero, mientras trabaja.</h2>
+      <p class="lead">Así opera el sistema que construimos: cada inspección, salida, entrega, cierre de caja y orden de taller queda registrada con hora, foto y responsable, y se vuelve evidencia para la auditoría de su cliente.</p>
+    </div>
+    <div class="gemelo" role="group" aria-label="Gemelo digital de una flota de ocho vehículos que sale del centro de distribución, entrega en doce puntos de la ciudad con foto y firma, cierra caja al volver y pasa por el taller cuando la inspección lo pide. Un panel explica cada paso y cuenta las evidencias para la auditoría. Datos sintéticos.">
+      <div class="gemelo__barra"><span class="etq">Gemelo digital · flota de reparto · en vivo</span><span class="gemelo__estado">CAPTURANDO</span></div>
+      <canvas class="gemelo__vista" data-gemelo="flota" width="1000" height="620" aria-hidden="true"></canvas>
+      <div class="hud">
+        <div class="hud__reloj"><span class="k">Hora simulada</span><span class="v" data-m="reloj">06:00</span></div>
+        <div class="hud__eventos"><span class="k">Bitácora en vivo</span><ul data-m="eventos"></ul></div>
+        <div class="hud__spark"><span class="k">Entregas efectivas · 6 h</span><canvas data-m="spark" width="150" height="36" aria-hidden="true"></canvas></div>
+      </div>
+      <div class="patio__cifras">
+        <div><span class="v" data-m="disp">0 %</span><span class="k">Disponibilidad de la flota</span></div>
+        <div><span class="v" data-m="efect">—</span><span class="k">Entregas efectivas</span></div>
+        <div><span class="v" data-m="insp">0/8</span><span class="k">Inspecciones hoy</span></div>
+        <div><span class="v" data-m="evid">0</span><span class="k">Evidencias en la carpeta</span></div>
+      </div>
+    </div>
+    <div class="grid grid--4" style="margin-top:24px">
+      <div class="tarjeta tarjeta--borde-sup rev" data-d="1"><span class="etq">01 · Captura</span><h3>En el celular, con foto</h3><p>Inspección preoperacional, entrega con foto y firma, rechazo con causa y cierre de caja.</p></div>
+      <div class="tarjeta tarjeta--borde-sup rev" data-d="2"><span class="etq">02 · Un solo flujo</span><h3>Todo en el mismo modelo</h3><p>Por vehículo, ruta, conductor y punto de entrega, desde la salida hasta el retorno.</p></div>
+      <div class="tarjeta tarjeta--morada rev" data-d="3"><span class="etq etq--morado">03 · Alertas</span><h3>A tiempo, no a fin de mes</h3><p>Rechazos, exceso de velocidad, documentos por vencer y vehículos que deben ir al taller.</p></div>
+      <div class="tarjeta tarjeta--borde-sup rev" data-d="4"><span class="etq">04 · Evidencia</span><h3>Lista para la auditoría</h3><p>Cada registro queda en la carpeta con fecha, responsable y foto, y se exporta para el auditor.</p></div>
+    </div>
+    <p class="nota" style="margin-top:14px">Datos sintéticos: un segundo equivale a dos minutos. No son datos de un cliente.</p>
+  </div>
+</section>
+
 <section class="seccion" id="caminos">
   <div class="wrap">
     <div class="cabecera rev">
@@ -277,6 +309,7 @@
   </div>
 </footer>
 <script src="assets/js/site.js" defer></script>
+<script src="assets/js/flota.js" defer></script>
 
 </body>
 </html>

@@ -69,6 +69,38 @@
   </div>
 </section>
 
+<section class="seccion seccion--oscura" id="en-vivo">
+  <div class="wrap">
+    <div class="cabecera rev">
+      <span class="etq">Véalo funcionando</span>
+      <h2>Del patio a la gerencia, un solo flujo de datos.</h2>
+      <p class="lead">Lo que pasa en la operación (personal, flota, puerta, reparto, retorno e inventario) llega a un solo modelo de datos. Agentes de IA revisan que las cifras cuadren y cada área recibe lo suyo: finanzas, contabilidad, compras, dirección de proyectos, gerencia y sus clientes.</p>
+    </div>
+    <div class="gemelo" role="group" aria-label="Flujo de datos de un operador logístico: seis fuentes de la operación envían registros a un modelo de datos único; un agente de IA corrige las cifras que no cuadran y un asistente responde preguntas; los registros salen hacia finanzas, contabilidad, compras, dirección de proyectos, gerencia y clientes. La bitácora cuenta cada historia completa. Datos sintéticos.">
+      <div class="gemelo__barra"><span class="etq">Un solo flujo de datos · operador logístico · en vivo</span><span class="gemelo__estado">INTEGRANDO</span></div>
+      <canvas class="gemelo__vista" data-gemelo="flujo" width="1000" height="620" aria-hidden="true"></canvas>
+      <div class="hud">
+        <div class="hud__reloj"><span class="k">Hora simulada</span><span class="v" data-m="reloj">06:00</span></div>
+        <div class="hud__eventos"><span class="k">Bitácora en vivo</span><ul data-m="eventos"></ul></div>
+        <div class="hud__spark"><span class="k">Registros por hora · 6 h</span><canvas data-m="spark" width="150" height="36" aria-hidden="true"></canvas></div>
+      </div>
+      <div class="patio__cifras">
+        <div><span class="v" data-m="reg">0</span><span class="k">Registros integrados hoy</span></div>
+        <div><span class="v" data-m="corr">0</span><span class="k">Cifras corregidas por agentes</span></div>
+        <div><span class="v" data-m="horas">0,0</span><span class="k">Horas devueltas al equipo</span></div>
+        <div><span class="v" data-m="cons">0</span><span class="k">Consultas al asistente</span></div>
+      </div>
+    </div>
+    <div class="grid grid--4" style="margin-top:24px">
+      <div class="tarjeta tarjeta--borde-sup rev" data-d="1"><span class="etq">01 · Captura</span><h3>En la operación</h3><p>Turnos y asistencia, inspecciones, salidas, entregas, devoluciones con segundo testigo y conteos.</p></div>
+      <div class="tarjeta tarjeta--borde-sup rev" data-d="2"><span class="etq">02 · Un solo modelo</span><h3>El mismo dato para todos</h3><p>Cada registro llega una vez y se rastrea hasta su origen. Nadie vuelve a digitar.</p></div>
+      <div class="tarjeta tarjeta--morada rev" data-d="3"><span class="etq etq--morado">03 · IA que revisa</span><h3>Cifras que cuadran</h3><p>Un agente encuentra lo que no cuadra y lo corrige con constancia; un asistente responde en español citando la fuente.</p></div>
+      <div class="tarjeta tarjeta--borde-sup rev" data-d="4"><span class="etq">04 · Cada área decide</span><h3>De la caja a la gerencia</h3><p>Finanzas, contabilidad, compras, proyectos, gerencia y clientes reciben lo suyo a tiempo. La decisión es de una persona.</p></div>
+    </div>
+    <p class="nota" style="margin-top:14px">Datos sintéticos: un segundo equivale a dos minutos. No son datos de un cliente.</p>
+  </div>
+</section>
+
 <section class="seccion" id="lo-que-cuesta">
   <div class="wrap">
     <div class="cabecera rev">
@@ -268,6 +300,7 @@
   </div>
 </footer>
 <script src="assets/js/site.js" defer></script>
+<script src="assets/js/flujo.js" defer></script>
 
 </body>
 </html>
