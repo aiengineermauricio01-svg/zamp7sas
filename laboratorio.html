@@ -64,10 +64,10 @@
     <h1>Optimización cuántica aplicada a la logística colombiana.</h1>
     <p class="lead">Dos decisiones de la cadena de suministro —el acopio de café en el Suroeste antioqueño y la importación de carga de China a Medellín— resueltas con el algoritmo cuántico QAOA en procesadores IBM Heron reales. Qué funcionó, qué no y qué significa para la operación.</p>
     <div class="acciones" style="margin-top:22px">
-      <a class="btn btn--primario" href="assets/descargas/laboratorio/zamp7-lab-informe-01-optimizacion-cuantica.pdf" download>Descargar el informe (PDF, 12 páginas)</a>
+      <a class="btn btn--primario" href="assets/descargas/laboratorio/zamp7-lab-informe-01-optimizacion-cuantica.pdf" download>Descargar el informe (PDF, 13 páginas)</a>
       <a class="btn btn--secundario" href="https://github.com/aiengineermauricio01-svg/qaoa-logistica-colombia" rel="noopener">Ver el código abierto en GitHub</a>
     </div>
-    <p class="nota" style="margin-top:14px">Versión 1.0 · 23 de octubre de 2026 · Investigación de Alber Mauricio Márquez Gutiérrez, fundador de ZAMP7 · Experimentos del 28 de junio al 1 de julio de 2026 · Cifras recalculadas por ZAMP7</p>
+    <p class="nota" style="margin-top:14px">Versión 1.1 · 23 de octubre de 2026 · Investigación de Alber Mauricio Márquez Gutiérrez, fundador de ZAMP7 · Experimentos del 28 de junio al 1 de julio de 2026 · Cifras recalculadas por ZAMP7</p>
   </div>
 </section>
 
@@ -100,8 +100,8 @@
         <span class="etq etq--gris">Alcance honesto · léase antes de citar</span>
         <ul class="lista-limpia">
           <li><strong>No es ventaja cuántica.</strong> Los casos son pequeños y un computador normal los resuelve exactos enumerando las 8 respuestas.</li>
-          <li><strong>No es una primacía verificada.</strong> Falta una revisión sistemática de la literatura; este informe no afirma ningún «primero».</li>
-          <li><strong>Datos ilustrativos en la importación.</strong> Los costos y tiempos están calibrados contra tarifas publicadas, pero no son cotizaciones.</li>
+          <li><strong>No es una primacía verificada.</strong> La revisión acotada de 15 fuentes no halló trabajo regional previo con esta combinación, pero no es sistemática: este informe no afirma ningún «primero».</li>
+          <li><strong>Datos ilustrativos en la importación.</strong> No son cotizaciones, y los tránsitos marítimos del modelo son más cortos que las referencias públicas: con 3 días más, la ruta óptima pasa de 1.580 a 4.750 USD.</li>
         </ul>
       </div>
     </div>
@@ -126,7 +126,7 @@
           <h3>Importación China–Medellín: la ruta más barata que llega a tiempo</h3>
           <p>Una carga de 500 kg, 8 rutas multimodales (mar estándar o exprés por Cartagena o Buenaventura, o aire por Bogotá) y un plazo máximo de 28 días. Los costos son ilustrativos.</p>
           <p><strong>Óptimo:</strong> mar exprés por Buenaventura, 26 días, 1.580 USD. <strong>Hardware</strong> (ibm_fez): 76,4 % de acierto, 6,1 veces el azar; el ruido cuesta 9,2 puntos.</p>
-          <p class="nota">Hallazgo: un día de plazo puede valer el doble del flete (ver la gráfica del costo del plazo).</p>
+          <p class="nota">Hallazgo: un día de plazo puede valer el doble del flete (ver la gráfica del costo del plazo). Y con 3 días más de tránsito marítimo que los del modelo, la ruta óptima pasa a ser el avión: de 1.580 a 4.750 USD.</p>
         </div>
       </div>
 
@@ -236,13 +236,43 @@
         </div>
       </div>
 
+      <div class="grid grid--2" style="margin-top:8px;align-items:start">
+        <div class="tarjeta tarjeta--borde-sup rev" data-d="1">
+          <span class="etq">Revisión de la literatura (v1.1)</span>
+          <h3>Qué dice lo publicado, con sus límites</h3>
+          <ul class="lista-limpia">
+            <li><strong>QAOA y MaxCut están muy estudiados</strong> desde 2014, también en hardware real (hasta 23 qubits en Sycamore, en 2021).</li>
+            <li><strong>Los métodos clásicos locales superan a QAOA superficial</strong> en familias de grafos de MaxCut (Hastings, 2019, y trabajos posteriores): por eso este informe no reclama ventaja.</li>
+            <li><strong>La transferencia de parámetros es práctica conocida</strong> (Galda et al., 2021): el método no se presenta como nuevo.</li>
+            <li><strong>Ventaja cuántica en 2026:</strong> IBM anunció el 30 de julio de 2026 demostraciones en tareas de muestreo, no de optimización; una fue puesta en duda por un cálculo clásico reportado, sin verificar en la fuente primaria.</li>
+            <li><strong>Región:</strong> no se halló investigación con QAOA en logística en Colombia o Latinoamérica, pero la búsqueda no incluyó repositorios regionales y no autoriza a afirmar un «primero».</li>
+          </ul>
+          <p class="nota">Revisión acotada, no sistemática: 8 consultas en un buscador general el 23 de octubre de 2026; metadatos y resúmenes, no texto completo. Las 15 fuentes están en el anexo F del PDF.</p>
+        </div>
+        <div class="tarjeta tarjeta--morada rev" data-d="2">
+          <span class="etq etq--morado">Advertencia sobre los datos de la importación</span>
+          <h3>Con 3 días más de mar, el óptimo se triplica</h3>
+          <p>Las referencias públicas consultadas dan de 32 a 42 días puerto a puerto para el servicio marítimo estándar a Buenaventura; el modelo usa 28. Recalculando las 8 rutas con plazo de 28 días:</p>
+          <div class="tabla-wrap">
+            <table class="tabla">
+              <thead><tr><th scope="col">Días extra en el mar</th><th scope="col">Ruta óptima</th><th scope="col">USD</th></tr></thead>
+              <tbody>
+                <tr><td class="mono">0 a 2</td><td>Mar exprés por Buenaventura (ruta 4)</td><td class="mono">1.580</td></tr>
+                <tr><td class="mono"><strong>3 o más</strong></td><td><strong>Aéreo estándar por Bogotá (ruta 5)</strong></td><td class="mono"><strong>4.750</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="nota">Cálculo propio de ZAMP7. No hay referencia pública para el servicio exprés del modelo ni para el costo aéreo. La v2 debe usar cotizaciones con tránsito comprometido.</p>
+        </div>
+      </div>
+
       <div class="cabecera" style="margin-top:36px">
         <span class="etq">Hoja de ruta del laboratorio</span>
         <h2>Publicar, escalar con datos reales y, solo si se justifica, pilotear.</h2>
       </div>
       <div class="linea-tiempo">
-        <div class="hito"><span class="cuando">Horizonte 1 · Ahora</span><h3>Publicar y blindar</h3><ul><li>Informe N.º 01 y código abierto.</li><li>Identificador permanente (DOI) en Zenodo.</li><li>Versión 1.1 con revisión sistemática de la literatura.</li></ul></div>
-        <div class="hito"><span class="cuando">Horizonte 2 · Siguiente (propuesta)</span><h3>Escalar con datos reales</h3><ul><li>Importación v2 con tarifas verificadas.</li><li>Casos de 20 o más decisiones, donde enumerar ya no es instantáneo.</li><li>Comparación con programación entera.</li></ul></div>
+        <div class="hito"><span class="cuando">Horizonte 1 · Ahora</span><h3>Publicar y blindar</h3><ul><li>Informe N.º 01 y código abierto: publicados.</li><li>Versión 1.1: revisión acotada de la literatura y referencias de tarifas: hecha.</li><li>Pendiente: identificador permanente (DOI) en Zenodo.</li></ul></div>
+        <div class="hito"><span class="cuando">Horizonte 2 · Siguiente</span><h3>Escalar con datos reales</h3><ul><li>Importación v2 con tres cotizaciones y tránsitos comprometidos.</li><li>Revisión sistemática completa (opcional, para publicar en revista).</li><li>Casos de 20 o más decisiones, donde enumerar ya no es instantáneo.</li><li>Comparación con programación entera.</li></ul></div>
         <div class="hito hito--morado"><span class="cuando">Horizonte 3 · Si el hardware lo justifica</span><h3>Piloto híbrido</h3><ul><li>Cuántico y clásico juntos, con datos anonimizados de un cliente que lo autorice.</li><li>Solo si pasa la compuerta de adopción.</li></ul></div>
       </div>
       <p class="nota" style="margin-top:12px">Los horizontes 2 y 3 son propuestas del laboratorio, sin fecha comprometida.</p>
@@ -254,6 +284,11 @@
             <li>Farhi, E., Goldstone, J. y Gutmann, S. (2014). <em>A Quantum Approximate Optimization Algorithm</em>. arXiv:1411.4028.</li>
             <li>IBM (2025). <em>IBM Quantum roadmap</em>. ibm.com/quantum-computing/roadmap. Consultado el 23 de octubre de 2026.</li>
             <li>HPCwire (10 de junio de 2025). <em>IBM Sets 2029 Target for Fault-Tolerant Quantum Computing</em>.</li>
+            <li>Harrigan, M. P. et al. (2021). <em>Quantum approximate optimization of non-planar graph problems on a planar superconducting processor</em>. Nature Physics. doi:10.1038/s41567-020-01105-y.</li>
+            <li>Hastings, M. B. (2019). <em>Classical and Quantum Bounded Depth Approximation Algorithms</em>. arXiv:1905.07047.</li>
+            <li>Galda, A. et al. (2021). <em>Transferability of optimal QAOA parameters between random graphs</em>. arXiv:2106.07531.</li>
+            <li>IBM (30 de julio de 2026). <em>IBM and The University of Chicago Demonstrate Quantum Advantage</em>. newsroom.ibm.com.</li>
+            <li>Las demás fuentes de la revisión (15 en total) están en el anexo F del PDF.</li>
           </ol>
         </div>
         <div class="rev" data-d="2">
