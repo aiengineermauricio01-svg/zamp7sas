@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ZAMP7 Lab · Optimización cuántica aplicada a la logística</title>
+<meta name="description" content="ZAMP7 Lab, el laboratorio de investigación de ZAMP7: dos decisiones logísticas colombianas resueltas con el algoritmo cuántico QAOA en procesadores IBM Heron reales. Informe en tres vistas: ejecutiva, gerencial y corporativa, con alcance honesto y cifras verificadas.">
+<meta property="og:title" content="ZAMP7 Lab · Optimización cuántica aplicada a la logística">
+<meta property="og:description" content="ZAMP7 Lab, el laboratorio de investigación de ZAMP7: dos decisiones logísticas colombianas resueltas con el algoritmo cuántico QAOA en procesadores IBM Heron reales. Informe en tres vistas: ejecutiva, gerencial y corporativa, con alcance honesto y cifras verificadas.">
+<link rel="canonical" href="https://zamp7sas.vercel.app/laboratorio.html">
+<meta property="og:url" content="https://zamp7sas.vercel.app/laboratorio.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://zamp7sas.vercel.app/assets/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="ZAMP7">
+<meta property="og:locale" content="es_CO">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0A0A12">
+<link rel="icon" href="assets/img/zamp7-favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/archivo-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/ibm-plex-mono-500-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/site.css">
+<script>try{var t=localStorage.getItem('zamp7-tema');if(t==='dark'||t==='light')document.documentElement.dataset.theme=t;}catch(e){}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"ZAMP7 S.A.S.","description":"Supply Chain Intelligence: inteligencia para la cadena de suministro, medida desde el centro de distribución. Medimos los siete procesos de la cadena: conectamos los sistemas que cada empresa ya tiene, construimos a la medida los que faltan, les incorporamos asistentes de IA, convertimos sus datos en tableros y acompañamos hasta producción con soporte técnico.","slogan":"Every link, measured.","knowsAbout":["Transformación digital","Digitalización de procesos logísticos","Soluciones logísticas con inteligencia artificial","Asistentes de IA para plataformas empresariales","Inteligencia de negocio","Software a la medida","Gestión de la cadena de suministro","Centros de distribución"],"areaServed":"CO","url":"https://zamp7sas.vercel.app/","logo":"https://zamp7sas.vercel.app/assets/img/apple-touch-icon.png","legalName":"ZAMP7 S.A.S.","taxID":"902.114.075-4","email":"infozamp7@gmail.com","telephone":"+57 300 334 1933","address":{"@type":"PostalAddress","streetAddress":"Carrera 79A # 92-125","addressLocality":"Medellín","addressRegion":"Antioquia","postalCode":"050004","addressCountry":"CO"}}</script>
+<!-- Analítica sin cookies (Umami o Plausible): pegar aquí el script cuando exista el dominio. -->
+</head>
+<body>
+<a class="skip" href="#contenido">Ir al contenido</a>
+<div class="progreso" aria-hidden="true"></div>
+<header class="nav">
+  <div class="wrap nav__in">
+    <a class="marca" href="index.html" aria-label="ZAMP7, inicio">
+      <img class="marca__lockup marca__lockup--pos" src="assets/img/zamp7-logo-nacar-pantalla.svg" alt="ZAMP7" width="196" height="52">
+      <img class="marca__lockup marca__lockup--neg" src="assets/img/zamp7-logo-noche-pantalla.svg" alt="ZAMP7" width="196" height="52">
+    </a>
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir el menú">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h16M3 11h16M3 16h16"/></svg>
+    </button>
+    <ul class="nav__links" id="menu">
+      <li><a href="servicios.html">Servicios</a></li>
+      <li><a href="modulos.html">Módulos</a></li>
+      <li><a href="tecnologia.html">Tecnología</a></li>
+      <li><a href="evidencia.html">Evidencia</a></li>
+      <li><a href="nosotros.html">Nosotros</a></li>
+      <li><a href="recursos.html">Recursos</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+    <div class="nav__acciones">
+      <button class="tema" type="button" aria-label="Cambiar entre modo claro y oscuro" title="Modo claro u oscuro">
+        <svg class="luna" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+        <svg class="sol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <a class="btn btn--primario nav__cta" href="contacto.html#agenda">Hablemos 20 minutos</a>
+    </div>
+  </div>
+</header>
+<main id="contenido">
+<section class="portada-int">
+  <div class="wrap">
+    <span class="etq">ZAMP7 Lab · Informe N.º 01 · Laboratorio de investigación</span>
+    <h1>Optimización cuántica aplicada a la logística colombiana.</h1>
+    <p class="lead">Dos decisiones de la cadena de suministro —el acopio de café en el Suroeste antioqueño y la importación de carga de China a Medellín— resueltas con el algoritmo cuántico QAOA en procesadores IBM Heron reales. Qué funcionó, qué no y qué significa para la operación.</p>
+    <div class="acciones" style="margin-top:22px">
+      <a class="btn btn--primario" href="assets/descargas/laboratorio/zamp7-lab-informe-01-optimizacion-cuantica.pdf" download>Descargar el informe (PDF, 12 páginas)</a>
+      <a class="btn btn--secundario" href="https://github.com/aiengineermauricio01-svg/qaoa-logistica-colombia" rel="noopener">Ver el código abierto en GitHub</a>
+    </div>
+    <p class="nota" style="margin-top:14px">Versión 1.0 · 23 de octubre de 2026 · Investigación de Alber Mauricio Márquez Gutiérrez, fundador de ZAMP7 · Experimentos del 28 de junio al 1 de julio de 2026 · Cifras recalculadas por ZAMP7</p>
+  </div>
+</section>
+
+<section class="seccion" id="vistas" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap" data-tabs>
+    <ul class="tabs__lista" role="tablist" aria-label="Tres vistas del informe">
+      <li><button type="button" role="tab" id="tab-ejecutiva" aria-controls="vista-ejecutiva" aria-selected="true"><span class="num">01</span>Vista ejecutiva · 2 minutos</button></li>
+      <li><button type="button" role="tab" id="tab-gerencial" aria-controls="vista-gerencial" aria-selected="false"><span class="num">02</span>Vista gerencial · 10 minutos</button></li>
+      <li><button type="button" role="tab" id="tab-corporativa" aria-controls="vista-corporativa" aria-selected="false"><span class="num">03</span>Vista corporativa · método y evidencia</button></li>
+    </ul>
+
+    <!-- 01 · Vista ejecutiva -->
+    <div class="tabs__panel" role="tabpanel" id="vista-ejecutiva" aria-labelledby="tab-ejecutiva">
+      <div class="cabecera">
+        <span class="etq">Para quien decide</span>
+        <h2>La respuesta corta: no hace falta comprar cómputo cuántico hoy, pero conviene estar listos.</h2>
+        <p class="lead">El método funciona en hardware real y su ruido se puede medir. La ventaja frente a un computador normal todavía no existe: cada caso tiene 8 respuestas posibles y se resuelve exacto al instante.</p>
+      </div>
+      <div class="cifras">
+        <div class="cifra"><span class="n">2 de 2</span><span class="t">experimentos en los que la respuesta más frecuente del hardware fue la óptima</span></div>
+        <div class="cifra"><span class="n">54 · 76<small>%</small></span><span class="t">de los disparos cayeron en el óptimo: 54,3 % en el acopio de café (azar: 25 %) y 76,4 % en la importación (azar: 12,5 %)</span></div>
+        <div class="cifra"><span class="n">91<small>%</small></span><span class="t">de las respuestas del hardware en la importación cumplen el plazo de 28 días</span></div>
+      </div>
+      <div class="grid grid--3" style="margin-top:32px">
+        <div class="tarjeta tarjeta--borde-sup"><span class="etq">Lo que encontramos</span><h3>El método completo ya corre</h3><p>Se calibra en un computador clásico y se ejecuta, sin recalibrar, en el procesador cuántico. El ruido cuesta entre 7 y 9 puntos de acierto y no cambia cuál es la mejor respuesta. El cuello de botella fue clásico: calibrar mejor los ángulos subió el acierto simulado de 36 % a 86 %.</p></div>
+        <div class="tarjeta tarjeta--borde-sup"><span class="etq">Lo que significa</span><h3>Formular vale más que el procesador</h3><p>Ninguna operación necesita hoy cómputo cuántico para decidir rutas o asignaciones de este tamaño. En la importación, pedir 25 días de plazo en vez de 26 triplica el costo del envío: la decisión estaba en el plazo, no en el algoritmo.</p></div>
+        <div class="tarjeta tarjeta--morada"><span class="etq etq--morado">Lo que recomendamos</span><h3>Capacidad lista, sin comprar promesas</h3><p>Resolver las decisiones de los clientes con métodos clásicos exactos y medidos. Mantener el laboratorio y adoptar algo cuántico solo cuando supere al mejor método clásico en casos reales, con el mismo protocolo, y lo apruebe una persona.</p></div>
+      </div>
+      <div class="tarjeta tarjeta--borde-sup" style="margin-top:20px">
+        <span class="etq etq--gris">Alcance honesto · léase antes de citar</span>
+        <ul class="lista-limpia">
+          <li><strong>No es ventaja cuántica.</strong> Los casos son pequeños y un computador normal los resuelve exactos enumerando las 8 respuestas.</li>
+          <li><strong>No es una primacía verificada.</strong> Falta una revisión sistemática de la literatura; este informe no afirma ningún «primero».</li>
+          <li><strong>Datos ilustrativos en la importación.</strong> Los costos y tiempos están calibrados contra tarifas publicadas, pero no son cotizaciones.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 02 · Vista gerencial -->
+    <div class="tabs__panel" role="tabpanel" id="vista-gerencial" aria-labelledby="tab-gerencial" hidden>
+      <div class="cabecera">
+        <span class="etq">Para el gerente de operaciones</span>
+        <h2>Dos decisiones reales y una lección: formule bien antes de optimizar.</h2>
+        <p class="lead">Las dos pertenecen a 03 Abastecer: traer la materia prima del campo y la carga importada hasta la planta o el centro de distribución. El plazo de la importación es una decisión de 01 Planificar.</p>
+      </div>
+      <div class="grid grid--2" style="align-items:start">
+        <div class="tarjeta tarjeta--borde-sup">
+          <span class="etq">Caso 1 · Q-COFFEE · 3 qubits</span>
+          <h3>Café del Suroeste: tres fincas, dos camiones</h3>
+          <p>Jericó, Jardín e Hispania se reparten entre dos camiones de acopio hacia Andes (Antioquia). Se formuló como corte máximo: poner en camiones distintos las fincas más distantes. Distancias de Google Maps, junio de 2026.</p>
+          <p><strong>Óptimo:</strong> corte de 62 km. <strong>Hardware</strong> (ibm_marrakesh): 54,3 % de acierto, 2,2 veces el azar; el ruido cuesta 7,2 puntos.</p>
+          <p class="nota">Hallazgo: maximizar el corte no minimiza el recorrido. Un solo camión recorre 90 km; la partición del corte, 95 km. Antes del algoritmo se escoge qué se optimiza.</p>
+        </div>
+        <div class="tarjeta tarjeta--borde-sup">
+          <span class="etq">Caso 2 · Q-CARGO-ZAM · 3 qubits</span>
+          <h3>Importación China–Medellín: la ruta más barata que llega a tiempo</h3>
+          <p>Una carga de 500 kg, 8 rutas multimodales (mar estándar o exprés por Cartagena o Buenaventura, o aire por Bogotá) y un plazo máximo de 28 días. Los costos son ilustrativos.</p>
+          <p><strong>Óptimo:</strong> mar exprés por Buenaventura, 26 días, 1.580 USD. <strong>Hardware</strong> (ibm_fez): 76,4 % de acierto, 6,1 veces el azar; el ruido cuesta 9,2 puntos.</p>
+          <p class="nota">Hallazgo: un día de plazo puede valer el doble del flete (ver la gráfica del costo del plazo).</p>
+        </div>
+      </div>
+
+      <div class="fig-lab rev" style="margin-top:32px">
+        <h3 class="fig-lab__tit">El hardware concentra el acierto en el óptimo, con algo de ruido</h3>
+        <div class="fig-lab__in"><!--SVG:qcoffee-dist--><svg class="lb-svg" viewBox="0 0 680 262" role="img" aria-label="Q-COFFEE: probabilidad de obtener el corte óptimo de 62 km: simulador 61,5 %, hardware 54,3 %, azar 25 %. Corte de 59 km: 35,3 % y 33,0 %." xmlns="http://www.w3.org/2000/svg" data-grafica="qcoffee-dist"><line class="lb-grid" x1="56.0" y1="206.0" x2="668.0" y2="206.0"/><text class="lb-ts" x="48.0" y="210.0" text-anchor="end">0 %</text><line class="lb-grid" x1="56.0" y1="144.6" x2="668.0" y2="144.6"/><text class="lb-ts" x="48.0" y="148.6" text-anchor="end">25 %</text><line class="lb-grid" x1="56.0" y1="83.1" x2="668.0" y2="83.1"/><text class="lb-ts" x="48.0" y="87.1" text-anchor="end">50 %</text><rect class="lb-s1" x="83.5" y="54.9" width="46.0" height="151.1" rx="0"/><text class="lb-v" x="106.5" y="48.9" text-anchor="middle">61,5 %</text><rect class="lb-s2" x="135.5" y="72.5" width="46.0" height="133.5" rx="0"/><text class="lb-v" x="158.5" y="66.5" text-anchor="middle">54,3 %</text><text class="lb-t" x="132.5" y="226.0" text-anchor="middle">62 km · óptimo</text><rect class="lb-s1" x="236.5" y="119.3" width="46.0" height="86.7" rx="0"/><text class="lb-v" x="259.5" y="113.3" text-anchor="middle">35,3 %</text><rect class="lb-s2" x="288.5" y="124.9" width="46.0" height="81.1" rx="0"/><text class="lb-v" x="311.5" y="118.9" text-anchor="middle">33,0 %</text><text class="lb-t" x="285.5" y="226.0" text-anchor="middle">59 km</text><rect class="lb-s1" x="389.5" y="198.9" width="46.0" height="7.1" rx="0"/><text class="lb-v" x="412.5" y="192.9" text-anchor="middle">2,9 %</text><rect class="lb-s2" x="441.5" y="187.3" width="46.0" height="18.7" rx="0"/><text class="lb-v" x="464.5" y="181.3" text-anchor="middle">7,6 %</text><text class="lb-t" x="438.5" y="226.0" text-anchor="middle">57 km</text><rect class="lb-s1" x="542.5" y="205.2" width="46.0" height="0.8" rx="0"/><text class="lb-v" x="565.5" y="199.2" text-anchor="middle">0,3 %</text><rect class="lb-s2" x="594.5" y="193.5" width="46.0" height="12.5" rx="0"/><text class="lb-v" x="617.5" y="187.5" text-anchor="middle">5,1 %</text><text class="lb-t" x="591.5" y="226.0" text-anchor="middle">0 km · un camión</text><line class="lb-azar" x1="56.0" y1="144.6" x2="668.0" y2="144.6"/><text class="lb-ts lb-ts--aten" x="668.0" y="138.6" text-anchor="end">Azar: 25 %</text><line class="lb-eje" x1="56.0" y1="206.0" x2="668.0" y2="206.0"/><rect class="lb-s1" x="56.0" y="8.0" width="12.0" height="12.0" rx="0"/><text class="lb-ts" x="74.0" y="18.0" text-anchor="start">Simulador ideal</text><rect class="lb-s2" x="206.0" y="8.0" width="12.0" height="12.0" rx="0"/><text class="lb-ts" x="224.0" y="18.0" text-anchor="start">Hardware · ibm_marrakesh</text><text class="lb-ts" x="56.0" y="252.0" text-anchor="start">Probabilidad de cada respuesta, agrupada por kilómetros cortados · 4.096 disparos</text></svg><!--/SVG:qcoffee-dist--></div>
+        <p class="nota">Q-COFFEE · probabilidad de cada respuesta agrupada por kilómetros cortados · 4.096 disparos.</p>
+      </div>
+      <div class="fig-lab rev">
+        <h3 class="fig-lab__tit">Costo mínimo para cumplir cada plazo</h3>
+        <div class="fig-lab__in"><!--SVG:qcargo-pareto--><svg class="lb-svg" viewBox="0 0 680 300" role="img" aria-label="Q-CARGO-ZAM: costo contra días de las ocho rutas. Con plazo de 28 días la mejor es la ruta 4, 1.580 dólares en 26 días. Exigir 25 días obliga al aéreo de 4.750 dólares: un día cuesta 3.170 dólares. Sin plazo, la más barata cuesta 1.230 dólares y tarda 31 días." xmlns="http://www.w3.org/2000/svg" data-grafica="qcargo-pareto"><rect class="lb-factible" x="64.0" y="30.0" width="420.0" height="220.0" rx="0"/><line class="lb-grid" x1="64.0" y1="250.0" x2="664.0" y2="250.0"/><text class="lb-ts" x="56.0" y="254.0" text-anchor="end">0</text><line class="lb-grid" x1="64.0" y1="187.1" x2="664.0" y2="187.1"/><text class="lb-ts" x="56.0" y="191.1" text-anchor="end">2.000</text><line class="lb-grid" x1="64.0" y1="124.3" x2="664.0" y2="124.3"/><text class="lb-ts" x="56.0" y="128.3" text-anchor="end">4.000</text><line class="lb-grid" x1="64.0" y1="61.4" x2="664.0" y2="61.4"/><text class="lb-ts" x="56.0" y="65.4" text-anchor="end">6.000</text><text class="lb-ts" x="64.0" y="268.0" text-anchor="middle">0</text><text class="lb-ts" x="214.0" y="268.0" text-anchor="middle">10</text><text class="lb-ts" x="364.0" y="268.0" text-anchor="middle">20</text><text class="lb-ts" x="514.0" y="268.0" text-anchor="middle">30</text><text class="lb-ts" x="664.0" y="268.0" text-anchor="middle">40</text><text class="lb-ts" x="364.0" y="288.0" text-anchor="middle">Días de tránsito China → Medellín</text><text class="lb-ts" x="12.0" y="18.0" text-anchor="start">USD por envío (500 kg)</text><path class="lb-escalon" d="M124.0,53.6 L139.0,53.6 L154.0,53.6 L154.0,100.7 L169.0,100.7 L184.0,100.7 L199.0,100.7 L214.0,100.7 L229.0,100.7 L244.0,100.7 L259.0,100.7 L274.0,100.7 L289.0,100.7 L304.0,100.7 L319.0,100.7 L334.0,100.7 L349.0,100.7 L364.0,100.7 L379.0,100.7 L394.0,100.7 L409.0,100.7 L424.0,100.7 L439.0,100.7 L454.0,100.7 L454.0,200.3 L469.0,200.3 L484.0,200.3 L499.0,200.3 L514.0,200.3 L529.0,200.3 L529.0,211.3 L544.0,211.3 L559.0,211.3 L574.0,211.3 L589.0,211.3 L604.0,211.3 L619.0,211.3 L634.0,211.3 L649.0,211.3 L664.0,211.3"/><line class="lb-plazo" x1="484.0" y1="30.0" x2="484.0" y2="250.0"/><text class="lb-ts lb-ts--aten" x="490.0" y="42.0" text-anchor="start">Plazo: 28 días</text><circle class="lb-punto" cx="619.0" cy="211.3" r="5"/><circle class="lb-punto" cx="529.0" cy="198.8" r="5"/><circle class="lb-punto" cx="529.0" cy="211.3" r="5"/><circle class="lb-punto lb-punto--opt" cx="454.0" cy="200.3" r="7"/><circle class="lb-punto" cx="154.0" cy="100.7" r="5"/><circle class="lb-punto" cx="154.0" cy="92.9" r="5"/><circle class="lb-punto" cx="124.0" cy="53.6" r="5"/><circle class="lb-punto" cx="124.0" cy="45.7" r="5"/><text class="lb-t lb-t--n" x="444.0" y="186.3" text-anchor="end">Ruta 4 · 1.580 USD · 26 d</text><text class="lb-ts" x="168.0" y="118.7" text-anchor="start">Rutas 5 y 6 · aéreo · 4.750 y 5.000 USD</text><text class="lb-ts" x="138.0" y="47.6" text-anchor="start">Rutas 7 y 8 · aéreo exprés · 6.250 y 6.500 USD · 4 d</text><text class="lb-ts" x="535.0" y="235.3" text-anchor="end">Más barata · 1.230 USD · 31 d</text><line class="lb-acantilado" x1="446.5" y1="194.3" x2="446.5" y2="106.7"/><text class="lb-v lb-v--alerta" x="438.5" y="150.5" text-anchor="end">+3.170 USD</text><text class="lb-ts" x="438.5" y="166.5" text-anchor="end">por pedir 25 días en vez de 26</text><line class="lb-eje" x1="64.0" y1="250.0" x2="664.0" y2="250.0"/></svg><!--/SVG:qcargo-pareto--></div>
+        <p class="nota">Q-CARGO-ZAM · la línea punteada marca el costo mínimo posible para cada plazo. Zona verde: rutas que cumplen 28 días. Cumplir el plazo cuesta 350 USD más que la ruta más barata (28 %); pedir 25 días en vez de 26 obliga al aéreo: de 1.580 a 4.750 USD.</p>
+      </div>
+      <div class="fig-lab rev">
+        <h3 class="fig-lab__tit">El hardware elige la ruta óptima en 3 de cada 4 disparos</h3>
+        <div class="fig-lab__in"><!--SVG:qcargo-prob--><svg class="lb-svg" viewBox="0 0 680 232" role="img" aria-label="Q-CARGO-ZAM: probabilidad de la ruta óptima: azar 12,5 %, exacta 86,0 %, simulador 85,5 %, hardware 76,4 %. Probabilidad de cumplir el plazo en hardware: 91,2 %." xmlns="http://www.w3.org/2000/svg" data-grafica="qcargo-prob"><line class="lb-grid" x1="150.0" y1="28.0" x2="150.0" y2="196.0"/><text class="lb-ts" x="150.0" y="212.0" text-anchor="middle">0 %</text><line class="lb-grid" x1="230.0" y1="28.0" x2="230.0" y2="196.0"/><text class="lb-ts" x="230.0" y="212.0" text-anchor="middle">25 %</text><line class="lb-grid" x1="310.0" y1="28.0" x2="310.0" y2="196.0"/><text class="lb-ts" x="310.0" y="212.0" text-anchor="middle">50 %</text><line class="lb-grid" x1="390.0" y1="28.0" x2="390.0" y2="196.0"/><text class="lb-ts" x="390.0" y="212.0" text-anchor="middle">75 %</text><line class="lb-grid" x1="470.0" y1="28.0" x2="470.0" y2="196.0"/><text class="lb-ts" x="470.0" y="212.0" text-anchor="middle">100 %</text><text class="lb-t" x="138.0" y="51.0" text-anchor="end">Azar</text><rect class="lb-contorno" x="150.0" y="34.0" width="200.0" height="26.0" rx="0"/><rect class="lb-s0" x="150.0" y="39.0" width="40.0" height="16.0" rx="0"/><text class="lb-v" x="356.0" y="52.0" text-anchor="start">12,5 % · factible 62,5 %</text><text class="lb-t" x="138.0" y="92.0" text-anchor="end">Exacta</text><rect class="lb-contorno" x="150.0" y="75.0" width="310.4" height="26.0" rx="0"/><rect class="lb-s1" x="150.0" y="80.0" width="275.1" height="16.0" rx="0"/><text class="lb-v" x="466.4" y="93.0" text-anchor="start">86,0 % · factible 97,0 %</text><text class="lb-t" x="138.0" y="133.0" text-anchor="end">Simulador</text><rect class="lb-s1" x="150.0" y="121.0" width="273.7" height="16.0" rx="0"/><text class="lb-v" x="429.7" y="134.0" text-anchor="start">85,5 %</text><text class="lb-t" x="138.0" y="174.0" text-anchor="end">Hardware · ibm_fez</text><rect class="lb-contorno" x="150.0" y="157.0" width="291.9" height="26.0" rx="0"/><rect class="lb-s2" x="150.0" y="162.0" width="244.4" height="16.0" rx="0"/><text class="lb-v" x="447.9" y="175.0" text-anchor="start">76,4 % · factible 91,2 %</text><rect class="lb-s1" x="150.0" y="8.0" width="12.0" height="10.0" rx="0"/><text class="lb-ts" x="168.0" y="17.0" text-anchor="start">Probabilidad de la ruta óptima</text><rect class="lb-contorno" x="380.0" y="6.0" width="18.0" height="14.0" rx="0"/><text class="lb-ts" x="404.0" y="17.0" text-anchor="start">Probabilidad de cumplir el plazo</text><text class="lb-ts" x="8.0" y="226.0" text-anchor="start">Simulador muestreado: factible 96,7 %. Azar: 1 de 8 rutas es la óptima y 5 de 8 cumplen el plazo.</text></svg><!--/SVG:qcargo-prob--></div>
+        <p class="nota">Q-CARGO-ZAM · hardware: ibm_fez, 3.128 de 4.096 disparos en la ruta óptima; 91,2 % de los disparos cumplen el plazo.</p>
+      </div>
+
+      <div class="cabecera" style="margin-top:36px">
+        <span class="etq">Qué hacer el lunes</span>
+        <h2>Tres decisiones que no necesitan un computador cuántico.</h2>
+      </div>
+      <div class="grid grid--3">
+        <div class="tarjeta tarjeta--borde-sup"><h3>Póngales precio a sus restricciones</h3><p>Saber cuánto cuesta cada día de plazo o cada ventana de entrega vale más que cualquier algoritmo: fue el hallazgo más caro de la importación.</p></div>
+        <div class="tarjeta tarjeta--borde-sup"><h3>Defina qué optimiza</h3><p>Kilómetros, capacidad, costo y tiempo no dan la misma respuesta. Con tres fincas, el corte máximo y el recorrido mínimo ya se separan.</p></div>
+        <div class="tarjeta tarjeta--morada"><h3>Pida evidencia, no promesas</h3><p>Ante una oferta cuántica, pregunte contra qué método clásico se comparó, en qué casos y con qué protocolo. Aquí la línea base clásica exacta existe desde la primera fase.</p></div>
+      </div>
+    </div>
+
+    <!-- 03 · Vista corporativa -->
+    <div class="tabs__panel" role="tabpanel" id="vista-corporativa" aria-labelledby="tab-corporativa" hidden>
+      <div class="cabecera">
+        <span class="etq">Para gobierno, auditoría y aliados técnicos</span>
+        <h2>Método, verificación y reglas del laboratorio.</h2>
+        <p class="lead">Cada cifra del informe sale de resultados publicados y fue recalculada por ZAMP7 con un programa propio. El laboratorio publica también los intentos fallidos.</p>
+      </div>
+
+      <div class="fig-lab rev">
+        <h3 class="fig-lab__tit">Método: tres fases con el óptimo conocido desde el principio</h3>
+        <div class="fig-lab__in"><!--SVG:metodo--><svg class="lb-svg" viewBox="0 0 680 178" role="img" aria-label="Método en tres fases: A, línea base clásica que conoce el óptimo exacto; B, simulador que calibra los ángulos del circuito; C, hardware cuántico real que ejecuta el circuito con los ángulos fijos y 4.096 disparos." xmlns="http://www.w3.org/2000/svg" data-grafica="metodo"><rect class="lb-caja" x="8.0" y="10.0" width="196.0" height="126.0" rx="4"/><text class="lb-ts lb-ts--azul" x="22.0" y="34.0" text-anchor="start">FASE A</text><text class="lb-t lb-t--n" x="22.0" y="56.0" text-anchor="start">Línea base clásica</text><text class="lb-tx" x="22.0" y="82.0" text-anchor="start">Se enumeran todas las</text><text class="lb-tx" x="22.0" y="99.0" text-anchor="start">respuestas posibles: se</text><text class="lb-tx" x="22.0" y="116.0" text-anchor="start">conoce el óptimo exacto.</text><line class="lb-flecha" x1="210.0" y1="73.0" x2="242.0" y2="73.0"/><path class="lb-punta" d="M242.0,67 L250.0,73 L242.0,79 Z"/><rect class="lb-caja" x="250.0" y="10.0" width="196.0" height="126.0" rx="4"/><text class="lb-ts lb-ts--azul" x="264.0" y="34.0" text-anchor="start">FASE B</text><text class="lb-t lb-t--n" x="264.0" y="56.0" text-anchor="start">Simulador</text><text class="lb-tx" x="264.0" y="82.0" text-anchor="start">Se calibran los ángulos</text><text class="lb-tx" x="264.0" y="99.0" text-anchor="start">del circuito (γ, β) en un</text><text class="lb-tx" x="264.0" y="116.0" text-anchor="start">computador clásico.</text><line class="lb-flecha" x1="452.0" y1="73.0" x2="484.0" y2="73.0"/><path class="lb-punta" d="M484.0,67 L492.0,73 L484.0,79 Z"/><rect class="lb-caja lb-caja--fuerte" x="492.0" y="10.0" width="196.0" height="126.0" rx="4"/><text class="lb-ts lb-ts--azul" x="506.0" y="34.0" text-anchor="start">FASE C</text><text class="lb-t lb-t--n" x="506.0" y="56.0" text-anchor="start">Hardware cuántico</text><text class="lb-tx" x="506.0" y="82.0" text-anchor="start">Se ejecuta el circuito fijo</text><text class="lb-tx" x="506.0" y="99.0" text-anchor="start">en un procesador real:</text><text class="lb-tx" x="506.0" y="116.0" text-anchor="start">4.096 disparos, un trabajo.</text><text class="lb-ts" x="469.0" y="160.0" text-anchor="middle">Transferencia de parámetros: el hardware no se recalibra</text><line class="lb-guia" x1="250.0" y1="146.0" x2="688.0" y2="146.0"/></svg><!--/SVG:metodo--></div>
+        <p class="nota">Transferencia de parámetros: se calibra en simulación y se ejecuta una sola vez en hardware con los ángulos fijos. La diferencia entre simulador y hardware mide solo el efecto del ruido.</p>
+      </div>
+
+      <div class="grid grid--2" style="align-items:start;margin-top:8px">
+        <div class="tabla-wrap rev">
+          <table class="tabla">
+            <caption class="nota" style="text-align:left;padding-bottom:8px">Resultados verificados</caption>
+            <thead><tr><th scope="col">Nivel</th><th scope="col">Q-COFFEE</th><th scope="col">Q-CARGO-ZAM</th></tr></thead>
+            <tbody>
+              <tr><td>Azar</td><td class="mono">25,00 %</td><td class="mono">12,50 %</td></tr>
+              <tr><td>Exacta (vector de estado)</td><td class="mono">60,45 %</td><td class="mono">85,97 %</td></tr>
+              <tr><td>Simulador muestreado</td><td class="mono">61,50 %</td><td class="mono">85,52 %</td></tr>
+              <tr><td><strong>Hardware</strong></td><td class="mono"><strong>54,32 %</strong></td><td class="mono"><strong>76,37 %</strong></td></tr>
+              <tr><td>Pérdida simulador → hardware</td><td class="mono">7,18 pts</td><td class="mono">9,16 pts</td></tr>
+              <tr><td>Veces el azar (hardware)</td><td class="mono">2,17×</td><td class="mono">6,11×</td></tr>
+              <tr><td>Fidelidad efectiva (ruido despolarizante)</td><td class="mono">0,83</td><td class="mono">0,87</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="rev" data-d="2">
+          <div class="tabla-wrap">
+            <table class="tabla">
+              <caption class="nota" style="text-align:left;padding-bottom:8px">Trazabilidad de la ejecución</caption>
+              <thead><tr><th scope="col">Caso</th><th scope="col">Procesador</th><th scope="col">Trabajo IBM Quantum</th></tr></thead>
+              <tbody>
+                <tr><td>Q-COFFEE</td><td>ibm_marrakesh · Heron r2, 156 qubits</td><td class="mono">d918bteu9n7c73am5nmg</td></tr>
+                <tr><td>Q-CARGO-ZAM</td><td>ibm_fez · Heron r2, 156 qubits</td><td class="mono">d92tk17d07jc73dvpnt0</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="nota" style="margin-top:10px">4.096 disparos por trabajo. Código abierto, licencia MIT, versión 1.0.0 (commit 190e53f).</p>
+        </div>
+      </div>
+
+      <div class="fig-lab rev" style="margin-top:28px">
+        <h3 class="fig-lab__tit">La penalización por incumplir el plazo tiene un punto óptimo</h3>
+        <div class="fig-lab__in"><!--SVG:qcargo-lambda--><svg class="lb-svg" viewBox="0 0 680 236" role="img" aria-label="Q-CARGO-ZAM: la probabilidad de la ruta óptima sube de 73,1 % con λ 550 a un pico de 86,0 % con λ 800 y baja después; cumplir el plazo sigue subiendo hasta cerca de 97 %." xmlns="http://www.w3.org/2000/svg" data-grafica="qcargo-lambda"><line class="lb-grid" x1="64.0" y1="186.0" x2="650.0" y2="186.0"/><text class="lb-ts" x="56.0" y="190.0" text-anchor="end">70 %</text><line class="lb-grid" x1="64.0" y1="134.0" x2="650.0" y2="134.0"/><text class="lb-ts" x="56.0" y="138.0" text-anchor="end">80 %</text><line class="lb-grid" x1="64.0" y1="82.0" x2="650.0" y2="82.0"/><text class="lb-ts" x="56.0" y="86.0" text-anchor="end">90 %</text><line class="lb-grid" x1="64.0" y1="30.0" x2="650.0" y2="30.0"/><text class="lb-ts" x="56.0" y="34.0" text-anchor="end">100 %</text><text class="lb-ts" x="100.6" y="204.0" text-anchor="middle">550</text><text class="lb-ts" x="247.1" y="204.0" text-anchor="middle">650</text><text class="lb-ts" x="320.4" y="204.0" text-anchor="middle">700</text><text class="lb-ts" x="393.6" y="204.0" text-anchor="middle">750</text><text class="lb-ts" x="466.9" y="204.0" text-anchor="middle">800</text><text class="lb-ts" x="540.1" y="204.0" text-anchor="middle">850</text><text class="lb-ts" x="613.4" y="204.0" text-anchor="middle">900</text><text class="lb-ts" x="357.0" y="224.0" text-anchor="middle">Penalización λ por día de exceso sobre el plazo</text><path class="lb-linea lb-linea--2" d="M100.6,152.4 L247.1,122.9 L320.4,86.6 L393.6,58.8 L466.9,45.6 L540.1,42.3 L613.4,43.3"/><circle class="lb-punto lb-punto--2" cx="100.6" cy="152.4" r="3.5"/><circle class="lb-punto lb-punto--2" cx="247.1" cy="122.9" r="3.5"/><circle class="lb-punto lb-punto--2" cx="320.4" cy="86.6" r="3.5"/><circle class="lb-punto lb-punto--2" cx="393.6" cy="58.8" r="3.5"/><circle class="lb-punto lb-punto--2" cx="466.9" cy="45.6" r="3.5"/><circle class="lb-punto lb-punto--2" cx="540.1" cy="42.3" r="3.5"/><circle class="lb-punto lb-punto--2" cx="613.4" cy="43.3" r="3.5"/><path class="lb-linea" d="M100.6,170.0 L247.1,160.6 L320.4,127.9 L393.6,107.0 L466.9,102.9 L540.1,110.4 L613.4,123.7"/><circle class="lb-punto" cx="100.6" cy="170.0" r="3.5"/><circle class="lb-punto" cx="247.1" cy="160.6" r="3.5"/><circle class="lb-punto" cx="320.4" cy="127.9" r="3.5"/><circle class="lb-punto" cx="393.6" cy="107.0" r="3.5"/><circle class="lb-punto" cx="466.9" cy="102.9" r="3.5"/><circle class="lb-punto" cx="540.1" cy="110.4" r="3.5"/><circle class="lb-punto" cx="613.4" cy="123.7" r="3.5"/><line class="lb-guia" x1="466.9" y1="30.0" x2="466.9" y2="186.0"/><text class="lb-t lb-t--n" x="474.9" y="120.9" text-anchor="start">λ = 800: 86,0 %</text><rect class="lb-s2" x="64.0" y="8.0" width="14.0" height="3.0" rx="0"/><text class="lb-ts" x="84.0" y="13.0" text-anchor="start">Probabilidad de la ruta óptima (exacta)</text><rect class="lb-s1" x="354.0" y="8.0" width="14.0" height="3.0" rx="0"/><text class="lb-ts" x="374.0" y="13.0" text-anchor="start">Probabilidad de cumplir el plazo</text></svg><!--/SVG:qcargo-lambda--></div>
+        <p class="nota">Trayectoria documentada del acierto simulado: 26,27 % → 36,33 % → 85,52 %. El primer optimizador clásico (COBYLA con 5 arranques) se quedaba en mínimos locales; con 8 respuestas, la calibración exacta es trivial. El cuello de botella no era cuántico.</p>
+      </div>
+      <div class="fig-lab rev">
+        <h3 class="fig-lab__tit">¿Sigue siendo la mejor si cambian los costos y los tiempos?</h3>
+        <div class="fig-lab__in"><!--SVG:qcargo-mc--><svg class="lb-svg" viewBox="0 0 680 208" role="img" aria-label="Q-CARGO-ZAM, robustez: en 20.000 escenarios la ruta 4 sigue siendo la mejor en 63,4 %; el aéreo gana en 14,7 %, cuando el marítimo exprés pasa del plazo; las rutas marítimas más baratas ganan en 21,3 %." xmlns="http://www.w3.org/2000/svg" data-grafica="qcargo-mc"><line class="lb-grid" x1="250.0" y1="8.0" x2="250.0" y2="172.0"/><text class="lb-ts" x="250.0" y="188.0" text-anchor="middle">0 %</text><line class="lb-grid" x1="340.0" y1="8.0" x2="340.0" y2="172.0"/><text class="lb-ts" x="340.0" y="188.0" text-anchor="middle">25 %</text><line class="lb-grid" x1="430.0" y1="8.0" x2="430.0" y2="172.0"/><text class="lb-ts" x="430.0" y="188.0" text-anchor="middle">50 %</text><line class="lb-grid" x1="520.0" y1="8.0" x2="520.0" y2="172.0"/><text class="lb-ts" x="520.0" y="188.0" text-anchor="middle">75 %</text><line class="lb-grid" x1="610.0" y1="8.0" x2="610.0" y2="172.0"/><text class="lb-ts" x="610.0" y="188.0" text-anchor="middle">100 %</text><text class="lb-t" x="238.0" y="27.0" text-anchor="end">Ruta 4 · mar exprés Buenaventura</text><rect class="lb-s2" x="250.0" y="14.0" width="228.2" height="18.0" rx="0"/><text class="lb-v" x="484.2" y="28.0" text-anchor="start">63,4 %</text><text class="lb-t" x="238.0" y="59.0" text-anchor="end">Ruta 5 · aéreo estándar</text><rect class="lb-s1" x="250.0" y="46.0" width="53.0" height="18.0" rx="0"/><text class="lb-v" x="309.0" y="60.0" text-anchor="start">14,7 %</text><text class="lb-t" x="238.0" y="91.0" text-anchor="end">Ruta 3 · mar estándar Buenaventura</text><rect class="lb-s1" x="250.0" y="78.0" width="52.2" height="18.0" rx="0"/><text class="lb-v" x="308.2" y="92.0" text-anchor="start">14,5 %</text><text class="lb-t" x="238.0" y="123.0" text-anchor="end">Ruta 2 · mar exprés Cartagena</text><rect class="lb-s1" x="250.0" y="110.0" width="24.5" height="18.0" rx="0"/><text class="lb-v" x="280.5" y="124.0" text-anchor="start">6,8 %</text><text class="lb-t" x="238.0" y="155.0" text-anchor="end">Ruta 7 · aéreo exprés</text><rect class="lb-s1" x="250.0" y="142.0" width="2.2" height="18.0" rx="0"/><text class="lb-v" x="258.2" y="156.0" text-anchor="start">0,6 %</text><text class="lb-ts" x="8.0" y="204.0" text-anchor="start">Réplica de ZAMP7: 20.000 escenarios, costos ±20 % y tiempos ±15 % por tramo, plazo de 28 días</text></svg><!--/SVG:qcargo-mc--></div>
+        <p class="nota">Réplica de ZAMP7: 20.000 escenarios con costos ±20 % y tiempos ±15 % por tramo, semilla 2026. El estudio original reporta cerca de 62 % con un método que no está en el repositorio. En 15 % de los escenarios ninguna ruta marítima cumple 28 días y la única forma de cumplir es el avión.</p>
+      </div>
+
+      <div class="grid grid--2" style="margin-top:8px;align-items:start">
+        <div class="tarjeta tarjeta--borde-sup rev" data-d="1">
+          <span class="etq">Controles de calidad</span>
+          <ul class="lista-limpia">
+            <li><strong>Línea base clásica:</strong> las 8 respuestas se enumeran antes de usar el procesador cuántico.</li>
+            <li><strong>Repetibilidad:</strong> semillas fijas; la parte exacta se reproduce bit a bit.</li>
+            <li><strong>Muestra:</strong> 4.096 disparos por trabajo; error de muestreo esperado menor a 1 punto.</li>
+            <li><strong>Intentos fallidos:</strong> se documentan, no se borran.</li>
+            <li><strong>Verificación independiente:</strong> ZAMP7 recalculó cada cifra sin Qiskit, el 23 de octubre de 2026. El repositorio no contiene credenciales.</li>
+          </ul>
+        </div>
+        <div class="tarjeta tarjeta--morada rev" data-d="2">
+          <span class="etq etq--morado">Compuerta de adopción</span>
+          <h3>Cuándo un método del laboratorio llega a un cliente</h3>
+          <ul class="lista-limpia">
+            <li>Supera al mejor método clásico disponible en costo, tiempo o calidad de la solución.</li>
+            <li>Lo demuestra en casos reales del cliente.</li>
+            <li>Se mide con el mismo protocolo que la línea base.</li>
+            <li>Una persona lo aprueba. Los datos de un cliente se usan solo con su autorización escrita y conforme a la Ley 1581 de 2012.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cabecera" style="margin-top:36px">
+        <span class="etq">Hoja de ruta del laboratorio</span>
+        <h2>Publicar, escalar con datos reales y, solo si se justifica, pilotear.</h2>
+      </div>
+      <div class="linea-tiempo">
+        <div class="hito"><span class="cuando">Horizonte 1 · Ahora</span><h3>Publicar y blindar</h3><ul><li>Informe N.º 01 y código abierto.</li><li>Identificador permanente (DOI) en Zenodo.</li><li>Versión 1.1 con revisión sistemática de la literatura.</li></ul></div>
+        <div class="hito"><span class="cuando">Horizonte 2 · Siguiente (propuesta)</span><h3>Escalar con datos reales</h3><ul><li>Importación v2 con tarifas verificadas.</li><li>Casos de 20 o más decisiones, donde enumerar ya no es instantáneo.</li><li>Comparación con programación entera.</li></ul></div>
+        <div class="hito hito--morado"><span class="cuando">Horizonte 3 · Si el hardware lo justifica</span><h3>Piloto híbrido</h3><ul><li>Cuántico y clásico juntos, con datos anonimizados de un cliente que lo autorice.</li><li>Solo si pasa la compuerta de adopción.</li></ul></div>
+      </div>
+      <p class="nota" style="margin-top:12px">Los horizontes 2 y 3 son propuestas del laboratorio, sin fecha comprometida.</p>
+
+      <div class="grid grid--2" style="margin-top:36px;align-items:start">
+        <div class="rev">
+          <span class="etq">Referencias</span>
+          <ol class="lista-limpia" style="margin-top:10px">
+            <li>Farhi, E., Goldstone, J. y Gutmann, S. (2014). <em>A Quantum Approximate Optimization Algorithm</em>. arXiv:1411.4028.</li>
+            <li>IBM (2025). <em>IBM Quantum roadmap</em>. ibm.com/quantum-computing/roadmap. Consultado el 23 de octubre de 2026.</li>
+            <li>HPCwire (10 de junio de 2025). <em>IBM Sets 2029 Target for Fault-Tolerant Quantum Computing</em>.</li>
+          </ol>
+        </div>
+        <div class="rev" data-d="2">
+          <span class="etq">Cómo citar</span>
+          <p class="mono" style="margin-top:10px;font-size:12.5px;line-height:1.6">Marquez Gutierrez, A. M. (2026). QAOA aplicada a logística en Colombia: Q-COFFEE (MaxCut) y Q-CARGO-ZAM (RCSPP) ejecutadas en hardware IBM Quantum Heron (v1.0.0) [software]. ZAMP7 Lab, Informe N.º 01. DOI pendiente.</p>
+          <p class="nota" style="margin-top:12px">IBM, IBM Quantum y Heron son marcas de IBM; Google Maps es marca de Google. Se nombran solo para identificar el hardware y la fuente de datos usados; ZAMP7 no tiene relación comercial con ninguna de las dos.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="seccion seccion--azul" id="agendar">
+  <div class="wrap">
+    <div class="cabecera" style="margin-bottom:0">
+      <span class="etq">Siguiente paso</span>
+      <h2>¿Tiene una decisión de rutas, asignación o programación que hoy se resuelve a mano?</h2>
+      <p class="lead">Cuéntenos el problema en 20 minutos con Alber Mauricio Márquez, fundador de ZAMP7. Lo formulamos con una línea base clásica medida y le decimos con evidencia si un método más avanzado se justifica. El laboratorio no vende cómputo cuántico: investiga para que lo que usted adopte esté probado.</p>
+      <div class="acciones">
+        <a class="btn btn--whatsapp" href="https://wa.me/573003341933?text=Hola%2C%20quiero%20conversar%2020%20minutos%20sobre%20optimizaci%C3%B3n%20log%C3%ADstica%20y%20el%20ZAMP7%20Lab." rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3a.5.5 0 0 0 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.1.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.2c0-.1-.2-.2-.5-.3z"/></svg>Agendar por WhatsApp</a>
+        <a class="btn btn--secundario" style="color:#F4F3F8;border-color:#C0D3ED" href="assets/descargas/laboratorio/zamp7-lab-informe-01-optimizacion-cuantica.pdf" download>Descargar el informe (PDF)</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="pie">
+  <div class="wrap">
+    <div class="pie__grid">
+      <div>
+        <img class="marca__lockup marca__lockup--neg" src="assets/img/zamp7-logo-noche-pantalla.svg" alt="ZAMP7" width="226" height="60">
+        <p style="margin-top:14px;max-width:34ch">Supply Chain Intelligence. Cada eslabón, medido: conectamos lo que existe, construimos lo que falta, le incorporamos IA y convertimos sus datos en decisiones, desde el centro de distribución.</p>
+        <p class="mono" style="margin-top:12px;font-size:11px;letter-spacing:.16em;color:#A3A3B3">PLANIFICAR · ORDENAR · ABASTECER · TRANSFORMAR · ENTREGAR · RETORNAR · ORQUESTAR</p>
+      </div>
+      <div>
+        <h4>Sitio</h4>
+        <ul>
+          <li><a href="servicios.html">Servicios</a></li>
+          <li><a href="flotas.html">Flotas</a></li>
+          <li><a href="operadores-logisticos.html">Operadores logísticos</a></li>
+          <li><a href="materia-prima.html">Materia prima</a></li>
+          <li><a href="modulos.html">Módulos</a></li>
+          <li><a href="diagnostico.html">Diagnóstico</a></li>
+          <li><a href="tecnologia.html">Tecnología</a></li>
+          <li><a href="arquitectura.html">Arquitectura</a></li>
+          <li><a href="evidencia.html">Evidencia</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="recursos.html">Recursos</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Empresa</h4>
+        <ul>
+          <li>ZAMP7 S.A.S.</li>
+          <li>NIT 902.114.075-4</li>
+          <li>Carrera 79A # 92-125, Medellín, Colombia</li>
+          <li><a href="mailto:infozamp7@gmail.com">infozamp7@gmail.com</a></li>
+          <li><a href="tel:+573003341933">+57 300 334 1933</a></li>
+          <li>Horario de atención: lunes a viernes, 7 a. m. a 7 p. m.</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="legal.html#politica">Política de tratamiento de datos</a></li>
+          <li><a href="legal.html#aviso">Aviso de privacidad</a></li>
+          <li><a href="legal.html#terminos">Términos y condiciones</a></li>
+          <li><a href="legal.html#peticiones">Peticiones y reclamos</a></li>
+          <li><a href="https://www.linkedin.com/in/alber-mauricio-marquez-06026024a" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="pie__legal">
+      <span>© <span data-year>2026</span> ZAMP7 S.A.S. · Medellín, Colombia · Todos los derechos reservados</span>
+      <span>Sin cookies de seguimiento · Las pantallas llevan datos sintéticos hasta que un cliente autorice los suyos</span>
+    </div>
+  </div>
+</footer>
+<script src="assets/js/site.js" defer></script>
+</body>
+</html>
