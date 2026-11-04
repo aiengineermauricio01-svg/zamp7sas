@@ -76,6 +76,14 @@
     mostrar('1');
   }
 
+  // Prueba de la autorización: el texto que la persona aceptó, con fecha y hora de Colombia, va en el mensaje
+  const autorizacion = consent => {
+    const label = consent && consent.closest('label');
+    if (!label) return '';
+    const cuando = new Date().toLocaleString('es-CO', { timeZone: 'America/Bogota' });
+    return `\n\nAutorización marcada en ${location.host} el ${cuando}: «${label.textContent.replace(/\s+/g, ' ').trim()}»`;
+  };
+
   // Formulario de tres campos: WhatsApp con mensaje prellenado o correo
   $$('form[data-contacto]').forEach(form => {
     form.addEventListener('submit', ev => {
@@ -86,7 +94,7 @@
       if (ok) ok.classList.remove('error');
       const f = new FormData(form), nombre = f.get('nombre') || '', empresa = f.get('empresa') || '', contacto = f.get('contacto') || '';
       const numero = (form.dataset.whatsapp || '').replace(/\D/g, '');
-      const texto = `Hola, quiero un diagnóstico de patio y cargue para mi CEDI. Soy ${nombre} de ${empresa}. Contacto: ${contacto}.`;
+      const texto = `Hola, quiero un diagnóstico de patio y cargue para mi CEDI. Soy ${nombre} de ${empresa}. Contacto: ${contacto}.` + autorizacion(consent);
       if (numero && !numero.startsWith('0000')) {
         window.open('https://wa.me/' + numero + '?text=' + encodeURIComponent(texto), '_blank', 'noopener');
       } else {
@@ -109,7 +117,7 @@
       const correoUsuario = (new FormData(form).get('correo') || '').toString().trim();
       const destino = form.dataset.correo || '';
       if (destino && !destino.includes('[')) {
-        location.href = 'mailto:' + destino + '?subject=' + encodeURIComponent('Quiero recibir los casos firmados') + '&body=' + encodeURIComponent('Correo para recibir los casos: ' + correoUsuario);
+        location.href = 'mailto:' + destino + '?subject=' + encodeURIComponent('Quiero recibir los casos firmados') + '&body=' + encodeURIComponent('Correo para recibir los casos: ' + correoUsuario + autorizacion(consent));
       }
       if (ok) { ok.classList.add('visible'); ok.textContent = 'Anotado. Le escribimos solo cuando se firme un caso.'; }
       form.reset();
